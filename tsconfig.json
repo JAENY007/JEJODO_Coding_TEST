@@ -19,6 +19,9 @@
     "paths": {
       "app.feature/*": ["app.feature/*"],
       "app.layout/*": ["app.layout/*"],
+      "app.components/*":["app.components/*"],
+      "root.modules/*":["root.modules/*"],
+      "root.styled/*":["root.styled/*"],
       "pages/*": ["pages/*"]
     },
   },
