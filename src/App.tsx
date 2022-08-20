@@ -1,25 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import GlobalStyles from 'root.styled/GlobalStyles';
+import Home from 'pages/Home';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+      refetchOnMount: false,
+      refetchOnWindowFocus: false,
+      refetchIntervalInBackground: false,
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyles />
+      <QueryClientProvider client={queryClient}>
+        <div className="App">
+          <h1>폰트 확인용</h1>
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </div>
+      </QueryClientProvider>
+    </>
   );
 }
 

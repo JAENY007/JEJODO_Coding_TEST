@@ -1,46 +1,69 @@
-# Getting Started with Create React App
+## 구현 설명
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 사용한 패키지
 
-## Available Scripts
+- **antd (Ant Design)**
+    
+    빠른 UI 생성을 위해 사용,
+    
+    Form의 name 속성 등을 사용하여 form의 데이터 송수신이 비교적 러닝커브가 낮음
+    
+- **react-query**
+    
+    query-key를 이용하여 간결한 API 통신코드 작성에 용이하다고 판단하여 사용
+    
+- **axios**
+    
+    기본 API 통신을 위해 적용
+    
+- **react-router-dom**
+    
+    SPA로 동작하는 웹페이지 생성을 위한 라우팅 기능을 이용하기 위해 사용
+    
+- **styled-components**
+    
+    CSS를 작성할때 전역으로 설정되는 것을 방지하고
+    컴포넌트 별로 스타일을 적용하여 유지보수가 용이한 점
+    
+- **prettier**
+    
+    코드의 가독성을 보다 높이기 위해 사용
 
-In the project directory, you can run:
+### 코딩 컨벤션 적용
 
-### `npm start`
+- 폴더명은 모두 camelCase로 생성
+- pages : 라우팅 처리가 되어있는 페이지 컴포넌트 폴더
+- app내의 root폴더는 root.{name} / app.{name}
+- 전역에서 사용할 모듈, CSS
+// root.modules / root.styled
+- app 의 공통 사용 폴더 입니다
+// app.feature / app.layout / app.components
+- 기능별로 폴더구조 분리
+    - screen/Screen~.tsx : 하나의 기능에서 사용되는 화면 시작점
+    - component/ : 하나의 기능에서 사용되는 비즈니스 로직이 담긴 컴포넌트
+    - query/ : useQuery, useMutation 등 react-Query 모듈 함수
+    - app.feature/{feature}/ ~ constant, store, module, hook 필요 시 추가
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**네이밍 컨벤션**
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- 컴포넌트명 : PascalCase 적용
+- 모듈함수, 상수 : camelCase 적용
+- CSS 클래스 : kebab-case 적용
 
-### `npm test`
+### 회고
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**배운 점**
 
-### `npm run build`
+- 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**고치고 싶은 점**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**공부해야 한다고 생각하는 것**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 
