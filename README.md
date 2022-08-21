@@ -2,12 +2,18 @@
 
 ## 기술 스펙 (Tech Stacks)
 
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=TypeScript&logoColor=white"/>
+<img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=white"/>
+<img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=Git&logoColor=white"/>
+
 ## 구현 설명
 
 ### 시연 영상
 
 - [x] **`메인화면`**
+
 ![image description]()
+
 <br/>
 
 - [X] **`검색화면`**

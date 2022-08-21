@@ -3,8 +3,8 @@ import reset from 'styled-reset';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
-  @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
-  
+  @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css); 
+
   ${reset}
   
   html { 
