@@ -24,7 +24,7 @@ const GoBackButton = () => {
 export default GoBackButton;
 
 const BackButton = styled(Button)`
-  color: #000;
+  color: #898989;
 
   :hover {
     color: #14db6a;

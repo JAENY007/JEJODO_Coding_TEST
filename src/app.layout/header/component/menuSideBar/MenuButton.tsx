@@ -36,8 +36,9 @@ const MenuButton: React.FC<TProps> = ({ visible, setVisible }) => {
 export default MenuButton;
 
 const StyledButton = styled(Button)`
-  color: #000;
+  color: #898989;
 
+  :focus,
   :hover {
     color: #14db6a;
   }

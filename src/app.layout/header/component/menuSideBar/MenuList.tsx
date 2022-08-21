@@ -16,7 +16,7 @@ const MenuList: React.FC<TProps> = ({ setVisible }) => {
   return (
     <StyledWrapper>
       <p className="link" onClick={() => handleClickReplace('/')}>
-        화섬 아파트 입주민들
+        화섬 아파트 지구家 입주민들
       </p>
     </StyledWrapper>
   );
