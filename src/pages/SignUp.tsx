@@ -1,5 +1,11 @@
+import { ScreenSignUp } from 'app.layout/sign';
+
 const SignUp = () => {
-  return <></>;
+  return (
+    <>
+      <ScreenSignUp />
+    </>
+  );
 };
 
 export default SignUp;

@@ -1,15 +1,20 @@
 import { Button } from 'antd';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
 
 type TProps = {
+  visible: boolean;
   setVisible: Function;
 };
 
-const MenuButton: React.FC<TProps> = ({ setVisible }) => {
+const MenuButton: React.FC<TProps> = ({ visible, setVisible }) => {
   const handleClickVisible = () => {
-    setVisible(true);
+    if (visible === false) {
+      setVisible(true);
+    } else {
+      setVisible(false);
+    }
   };
 
   return (
@@ -17,7 +22,13 @@ const MenuButton: React.FC<TProps> = ({ setVisible }) => {
       onClick={handleClickVisible}
       type="link"
       size="large"
-      icon={<FontAwesomeIcon icon={faBars} />}
+      icon={
+        visible ? (
+          <FontAwesomeIcon icon={faX} />
+        ) : (
+          <FontAwesomeIcon icon={faBars} />
+        )
+      }
     ></StyledButton>
   );
 };

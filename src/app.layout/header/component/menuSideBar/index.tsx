@@ -7,7 +7,7 @@ const SideBar = () => {
 
   return (
     <>
-      <MenuButton setVisible={setVisible} />
+      <MenuButton visible={visible} setVisible={setVisible} />
       <MenuDrawer visible={visible} setVisible={setVisible} />
     </>
   );

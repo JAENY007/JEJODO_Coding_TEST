@@ -1,5 +1,11 @@
+import { ScreenLogin } from 'app.layout/sign';
+
 const SignIn = () => {
-  return <></>;
+  return (
+    <>
+      <ScreenLogin />
+    </>
+  );
 };
 
 export default SignIn;
