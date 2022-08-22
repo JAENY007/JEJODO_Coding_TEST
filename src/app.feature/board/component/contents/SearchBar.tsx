@@ -1,13 +1,29 @@
 import { Form, Input } from 'antd';
 import styled from 'styled-components';
 
-const SearchBar = () => {
+type TProps = {
+  searchKeyword: string;
+  setSearchKeyword: Function;
+};
+
+const SearchBar: React.FC<TProps> = ({ searchKeyword, setSearchKeyword }) => {
   const [form] = Form.useForm();
+
+  const handleSearch = (value: any) => {
+    console.log(value);
+    setSearchKeyword(value);
+  };
 
   return (
     <StyledForm form={form}>
       <Form.Item name="keyword">
-        <Input.Search placeholder="검색어를 입력하세요!" />
+        <Input.Search
+          onSearch={handleSearch}
+          onChange={(event) => {
+            console.log(event.target.value);
+          }}
+          placeholder="검색어를 입력하세요!"
+        />
       </Form.Item>
     </StyledForm>
   );
@@ -55,6 +71,9 @@ const StyledForm = styled(Form)`
         .ant-input-search-button {
           border: none;
           background: none;
+        }
+
+        .anticon {
           color: #000;
         }
       }

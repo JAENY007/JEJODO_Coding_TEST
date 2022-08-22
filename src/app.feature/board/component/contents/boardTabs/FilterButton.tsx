@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-const FilterButton = () => {
-  const [isClicked, setIsClicked] = useState(false);
+type TProps = {
+  isClicked: boolean;
+  setIsClicked: Function;
+};
 
+const FilterButton: React.FC<TProps> = ({ isClicked, setIsClicked }) => {
   const handleClick = () => {
     if (isClicked === false) {
       setIsClicked(true);

@@ -3,7 +3,7 @@ class API {
   private readonly apiUrl: string;
 
   constructor() {
-    this.apiUrl = "";
+    this.apiUrl = "http://localhost:3000";
   }
 
   async CALL({ url = '', method = '', data = null }) {
