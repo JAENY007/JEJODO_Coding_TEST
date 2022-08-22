@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import BoardList from './BoardList';
-import PaginationBoardList from './PaginationBoardList';
+import BottomBlank from './BottomBlank';
 import SearchBar from './SearchBar';
 
 const BottomContentsWrap = () => {
@@ -14,7 +14,7 @@ const BottomContentsWrap = () => {
         setSearchKeyword={setSearchKeyword}
       />
       <BoardList />
-      <PaginationBoardList />
+      <BottomBlank />
     </StyledWrapper>
   );
 };

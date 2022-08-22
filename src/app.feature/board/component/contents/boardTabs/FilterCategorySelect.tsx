@@ -2,8 +2,8 @@ import { Button } from 'antd';
 import styled from 'styled-components';
 
 const FilterCategorySelect = () => {
-  const handleClickFilter = (value: any) => {
-    console.log(value);
+  const handleClickFilter = (event: any) => {
+    console.log(event.currentTarget.value);
   };
 
   return (
@@ -13,8 +13,8 @@ const FilterCategorySelect = () => {
         <Button
           className="select-filter-btn"
           type="text"
-          value="?"
-          onClick={(event) => handleClickFilter(event)}
+          value=""
+          onClick={handleClickFilter}
         >
           전체
         </Button>

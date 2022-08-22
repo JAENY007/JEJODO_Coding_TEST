@@ -1,15 +1,10 @@
-import { Pagination } from 'antd';
 import styled from 'styled-components';
 
-const PaginationBoardList = () => {
-  return (
-    <StyledWrapper>
-      <Pagination />
-    </StyledWrapper>
-  );
+const BottomBlank = () => {
+  return <StyledWrapper></StyledWrapper>;
 };
 
-export default PaginationBoardList;
+export default BottomBlank;
 
 const StyledWrapper = styled.div`
   position: relative;
@@ -17,7 +12,7 @@ const StyledWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 100px;
+  height: 30px;
 
   @media screen and (max-width: 768px) {
     top: 160px;

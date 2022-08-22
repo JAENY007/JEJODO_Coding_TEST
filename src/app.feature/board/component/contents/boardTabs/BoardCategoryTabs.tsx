@@ -1,13 +1,16 @@
 import styled from 'styled-components';
-import { Tabs } from 'antd';
+import { Button, Pagination, Tabs } from 'antd';
 import FilterButton from './FilterButton';
 import ContentSummaryCard from './ContentSummaryCard';
 import { useQueryBoardList } from 'app.feature/board/query/useQueryBoardList';
 import { useState } from 'react';
 import FilterCategorySelect from './FilterCategorySelect';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const BoardCategoryTabs = () => {
   const [isClicked, setIsClicked] = useState(false);
+  const [pageValue, setPageValue] = useState({ minValue: 0, maxValue: 7 });
   const { data: boardData, isLoading, isError } = useQueryBoardList();
 
   if (isError) return null;
@@ -20,6 +23,13 @@ const BoardCategoryTabs = () => {
     </>
   );
 
+  const handleChangePage = (value: any) => {
+    setPageValue({
+      minValue: (value - 1) * 8,
+      maxValue: value * 8,
+    });
+  };
+
   return (
     <StyledTabs
       defaultActiveKey="1"
@@ -27,17 +37,32 @@ const BoardCategoryTabs = () => {
         <FilterButton isClicked={isClicked} setIsClicked={setIsClicked} />
       }
     >
-      <Tabs.TabPane className="tabpane-tit le" tab={count} key="1">
+      <Tabs.TabPane className="tabpane-title" tab={count} key="1">
         {isClicked ? <FilterCategorySelect /> : null}
-        {boardData.map((itemList: any) => {
-          return (
-            <ContentSummaryCard
-              nickname={itemList.nickname}
-              oname={itemList.oname}
-              buildingCount={itemList.building_count}
-            />
-          );
-        })}
+        {boardData
+          .slice(pageValue.minValue, pageValue.maxValue)
+          .map((itemList: any) => {
+            return (
+              <ContentSummaryCard
+                nickname={itemList.nickname}
+                oname={itemList.oname}
+                buildingCount={itemList.building_count}
+              />
+            );
+          })}
+        <div className="flexbox-pagination">
+          <Button
+            icon={<FontAwesomeIcon icon={faArrowLeft} />}
+            onClick={() => handleChangePage(1)}
+          />
+          <Pagination
+            size="small"
+            pageSize={8}
+            total={boardData.length}
+            onChange={handleChangePage}
+          />
+          <Button icon={<FontAwesomeIcon icon={faArrowRight} />} />
+        </div>
       </Tabs.TabPane>
     </StyledTabs>
   );
@@ -69,6 +94,18 @@ const StyledTabs = styled(Tabs)`
   }
   .ant-tabs-ink-bar {
     background: none;
+  }
+
+  .flexbox-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .ant-pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   @media screen and (max-width: 768px) {
