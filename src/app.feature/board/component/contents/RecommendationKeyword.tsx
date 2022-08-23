@@ -1,28 +1,46 @@
+import { Button } from 'antd';
 import { useQueryRecommendationKeyword } from 'app.feature/board/query/useQueryRecommendationKeyword';
 import styled from 'styled-components';
 
 type TProps = {
   recommendationSearch: string;
+  setSearchKeyword: Function;
 };
 
-const RecommendationKeyword: React.FC<TProps> = ({ recommendationSearch }) => {
-  const { data, isLoading, isError } = useQueryRecommendationKeyword();
+const RecommendationKeyword: React.FC<TProps> = ({
+  recommendationSearch,
+  setSearchKeyword,
+}) => {
+  const {
+    data: recommendationKeyword,
+    isLoading,
+    isError,
+  } = useQueryRecommendationKeyword();
 
   if (isError) return null;
   if (isLoading) return null;
 
-  const keywordData = data.filter((item: any) =>
+  const keywordData = recommendationKeyword.filter((item: any) =>
     item.searchkeyword.includes(recommendationSearch)
   );
+
+  const handleClickSearch = (event: any) => {
+    setSearchKeyword(event.currentTarget.value);
+  };
 
   return (
     <StyledWrapper>
       <div className="recommendation-box">
         {keywordData.map((itemList: any) => {
           return (
-            <div className="recommendation-keyword-list" key={itemList.id}>
+            <Button
+              className="recommendation-keyword-list"
+              key={itemList.id}
+              onClick={handleClickSearch}
+              value={itemList.searchkeyword}
+            >
               {itemList.searchkeyword}
-            </div>
+            </Button>
           );
         })}
       </div>
@@ -64,8 +82,23 @@ const StyledWrapper = styled.div`
 
   .recommendation-keyword-list {
     position: relative;
-    top: 80px;
+    top: 60px;
     padding: 10px 0;
+    width: 100%;
+    color: #000;
+    letter-spacing: -0.05em;
+    border: none;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    > span {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    :hover {
+      background: #eeeeee;
+    }
   }
 
   @media screen and (max-width: 768px) {

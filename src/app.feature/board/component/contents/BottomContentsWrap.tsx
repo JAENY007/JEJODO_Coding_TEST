@@ -16,7 +16,10 @@ const BottomContentsWrap = () => {
         setRecommendationSearch={setRecommendationSearch}
       />
       {recommendationSearch && recommendationSearch.length ? (
-        <RecommendationKeyword recommendationSearch={recommendationSearch} />
+        <RecommendationKeyword
+          recommendationSearch={recommendationSearch}
+          setSearchKeyword={setSearchKeyword}
+        />
       ) : null}
       <BoardList searchKeyword={searchKeyword} />
       <BottomBlank />
