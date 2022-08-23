@@ -1,6 +1,6 @@
+import styled from 'styled-components';
 import { Button } from 'antd';
 import { useQueryRecommendationKeyword } from 'app.feature/board/query/useQueryRecommendationKeyword';
-import styled from 'styled-components';
 
 type TProps = {
   recommendationSearch: string;
@@ -102,10 +102,7 @@ const StyledWrapper = styled.div`
   }
 
   @media screen and (max-width: 768px) {
+    max-width: 320px;
     top: 140px;
-
-    .recommendation-box {
-      max-width: 320px;
-    }
   }
 `;

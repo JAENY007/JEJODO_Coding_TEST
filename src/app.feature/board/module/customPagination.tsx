@@ -1,6 +1,6 @@
+import styled from 'styled-components';
 import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import styled from 'styled-components';
 
 export const customPagination = (
   _: number,

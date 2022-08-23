@@ -21,4 +21,16 @@ const HeaderWrapper = styled.nav`
   align-items: center;
   position: relative;
   z-index: 99;
+
+  .ant-btn {
+    width: 60px;
+    height: 60px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .ant-btn {
+      width: 40px;
+      height: 40px;
+    }
+  }
 `;

@@ -1,7 +1,7 @@
+import styled from 'styled-components';
 import { Button } from 'antd';
 import { faBars, faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import styled from 'styled-components';
 
 type TProps = {
   visible: boolean;
@@ -24,9 +24,9 @@ const MenuButton: React.FC<TProps> = ({ visible, setVisible }) => {
       size="large"
       icon={
         visible ? (
-          <FontAwesomeIcon icon={faX} />
+          <FontAwesomeIcon className="icon" icon={faX} />
         ) : (
-          <FontAwesomeIcon icon={faBars} />
+          <FontAwesomeIcon className="icon" icon={faBars} />
         )
       }
     ></StyledButton>
@@ -37,6 +37,11 @@ export default MenuButton;
 
 const StyledButton = styled(Button)`
   color: #898989;
+
+  .icon {
+    width: 100%;
+    height: 100%;
+  }
 
   :focus,
   :hover {

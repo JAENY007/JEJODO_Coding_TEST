@@ -17,7 +17,4 @@ export default ScreenHwaSomBoard;
 
 const StyledWrapper = styled.div`
   height: 100%;
-
-  @media screen and (max-width: 768px) {
-  }
 `;

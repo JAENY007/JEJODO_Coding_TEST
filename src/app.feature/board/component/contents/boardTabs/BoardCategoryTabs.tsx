@@ -1,15 +1,15 @@
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Pagination, Tabs } from 'antd';
-import FilterButton from './FilterButton';
-import ContentSummaryCard from './ContentSummaryCard';
 import {
   useQueryBoardList,
   useQueryFilteredBoardList,
   useQuerySearchedBoardList,
 } from 'app.feature/board/query/useQueryBoardList';
-import React, { useState } from 'react';
+import { customPagination } from '../../../module/customPagination';
+import FilterButton from './FilterButton';
+import ContentSummaryCard from './ContentSummaryCard';
 import FilterCategorySelect from './FilterCategorySelect';
-import { customPagination } from '../../module/customPagination';
 
 type TProps = {
   searchKeyword: string;

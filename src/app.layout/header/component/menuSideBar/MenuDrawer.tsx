@@ -1,9 +1,7 @@
-import { faX } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Divider, Drawer } from 'antd';
 import styled from 'styled-components';
-import SignButtonBox from '../sign';
+import { Divider, Drawer } from 'antd';
 import MenuList from './MenuList';
+import SignButtonBox from '../sign';
 
 type TProps = {
   visible: boolean;
