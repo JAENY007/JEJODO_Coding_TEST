@@ -1,12 +1,14 @@
 import styled from 'styled-components';
-import HeaderImage from '../component/HeaderImage';
-import TitleBox from '../component/TitleBox';
+import BottomContentsWrap from '../component/contents/BottomContentsWrap';
+import HeaderImage from '../component/title/HeaderImage';
+import TitleBox from '../component/title/TitleBox';
 
 const ScreenHwaSomBoard = () => {
   return (
     <StyledWrapper>
       <HeaderImage />
       <TitleBox />
+      <BottomContentsWrap />
     </StyledWrapper>
   );
 };

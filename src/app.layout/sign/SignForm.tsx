@@ -1,5 +1,5 @@
-import { Form, FormInstance, Input } from 'antd';
 import styled from 'styled-components';
+import { Form, FormInstance, Input } from 'antd';
 
 type TProps = {
   form: FormInstance;
