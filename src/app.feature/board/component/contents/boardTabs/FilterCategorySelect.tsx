@@ -1,15 +1,19 @@
 import { Button } from 'antd';
 import styled from 'styled-components';
 
-const FilterCategorySelect = () => {
+type TProps = {
+  setBuildingCountFilter: Function;
+};
+
+const FilterCategorySelect: React.FC<TProps> = ({ setBuildingCountFilter }) => {
   const handleClickFilter = (event: any) => {
-    console.log(event.currentTarget.value);
+    setBuildingCountFilter(event.currentTarget.value);
   };
 
   return (
     <StyledWrapper>
       <p className="filter-name">보유 아파트</p>
-      <div>
+      <div className="filter-select">
         <Button
           className="select-filter-btn"
           type="text"
@@ -21,7 +25,7 @@ const FilterCategorySelect = () => {
         <Button
           className="select-filter-btn"
           type="text"
-          value="lt:5"
+          value="_gte=5"
           onClick={handleClickFilter}
         >
           5개 이상
@@ -29,7 +33,7 @@ const FilterCategorySelect = () => {
         <Button
           className="select-filter-btn"
           type="text"
-          value="4"
+          value="=4"
           onClick={handleClickFilter}
         >
           4개
@@ -37,7 +41,7 @@ const FilterCategorySelect = () => {
         <Button
           className="select-filter-btn"
           type="text"
-          value="3"
+          value="=3"
           onClick={handleClickFilter}
         >
           3개
@@ -45,7 +49,7 @@ const FilterCategorySelect = () => {
         <Button
           className="select-filter-btn"
           type="text"
-          value="2"
+          value="=2"
           onClick={handleClickFilter}
         >
           2개
@@ -53,7 +57,7 @@ const FilterCategorySelect = () => {
         <Button
           className="select-filter-btn"
           type="text"
-          value="1"
+          value="=1"
           onClick={handleClickFilter}
         >
           1개
@@ -78,8 +82,15 @@ const StyledWrapper = styled.div`
     margin-right: 12px;
   }
 
+  .filter-select {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
   .select-filter-btn {
-    margin: 0 12px;
+    margin: 0 6px;
+    padding: 4px 12px;
     border: none;
     color: #999999;
     font-size: 14px;
@@ -95,12 +106,20 @@ const StyledWrapper = styled.div`
     :active,
     :focus,
     :visited {
-      padding: 4px 12px;
       background: #000;
       color: #fff;
       font-weight: 700;
       border: none;
       border-radius: 20px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+
+    .filter-name {
+      margin-right: 0;
+      margin-bottom: 12px;
     }
   }
 `;

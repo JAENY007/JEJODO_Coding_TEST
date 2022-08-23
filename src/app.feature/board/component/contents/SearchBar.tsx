@@ -1,27 +1,36 @@
 import { Form, Input } from 'antd';
+import { useState } from 'react';
 import styled from 'styled-components';
 
 type TProps = {
-  searchKeyword: string;
   setSearchKeyword: Function;
+  setRecommendationSearch: Function;
 };
 
-const SearchBar: React.FC<TProps> = ({ searchKeyword, setSearchKeyword }) => {
+const SearchBar: React.FC<TProps> = ({
+  setSearchKeyword,
+  setRecommendationSearch,
+}) => {
   const [form] = Form.useForm();
+  const [marginBottom, setMarginBottom] = useState('56px');
 
   const handleSearch = (value: any) => {
-    console.log(value);
     setSearchKeyword(value);
   };
 
+  const handleChangeKeyword = (event: any) => {
+    setRecommendationSearch(event.target.value);
+    event.target.value.length >= 1
+      ? setMarginBottom('0')
+      : setMarginBottom('56px');
+  };
+
   return (
-    <StyledForm form={form}>
+    <StyledForm form={form} style={{ marginBottom: `${marginBottom}` }}>
       <Form.Item name="keyword">
         <Input.Search
           onSearch={handleSearch}
-          onChange={(event) => {
-            console.log(event.target.value);
-          }}
+          onChange={handleChangeKeyword}
           placeholder="검색어를 입력하세요!"
         />
       </Form.Item>
@@ -82,6 +91,7 @@ const StyledForm = styled(Form)`
 
   @media screen and (max-width: 768px) {
     top: 160px;
+    margin-bottom: 0;
 
     .ant-input-group {
       max-width: 320px;

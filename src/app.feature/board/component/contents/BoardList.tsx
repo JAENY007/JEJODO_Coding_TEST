@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 import BoardCategoryTabs from './boardTabs/BoardCategoryTabs';
 
-const BoardList = () => {
+type TProps = {
+  searchKeyword: string;
+};
+
+const BoardList: React.FC<TProps> = ({ searchKeyword }) => {
   return (
     <StyledWrapper>
-      <BoardCategoryTabs />
+      <BoardCategoryTabs searchKeyword={searchKeyword} />
     </StyledWrapper>
   );
 };

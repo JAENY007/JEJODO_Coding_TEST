@@ -2,18 +2,23 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import BoardList from './BoardList';
 import BottomBlank from './BottomBlank';
+import RecommendationKeyword from './RecommendationKeyword';
 import SearchBar from './SearchBar';
 
 const BottomContentsWrap = () => {
   const [searchKeyword, setSearchKeyword] = useState('');
+  const [recommendationSearch, setRecommendationSearch] = useState('');
 
   return (
     <StyledWrapper>
       <SearchBar
-        searchKeyword={searchKeyword}
         setSearchKeyword={setSearchKeyword}
+        setRecommendationSearch={setRecommendationSearch}
       />
-      <BoardList />
+      {recommendationSearch && recommendationSearch.length ? (
+        <RecommendationKeyword recommendationSearch={recommendationSearch} />
+      ) : null}
+      <BoardList searchKeyword={searchKeyword} />
       <BottomBlank />
     </StyledWrapper>
   );

@@ -71,6 +71,10 @@ const StyledWrapper = styled.div`
     flex-direction: column;
     align-items: flex-start;
 
+    .nickname-and-apts {
+      margin-bottom: 12px;
+    }
+
     .nickname-and-apts,
     .user-ids {
       width: 100%;
@@ -91,6 +95,7 @@ const StyledWrapper = styled.div`
         .id {
           width: 16px;
           margin-right: 4px;
+          letter-spacing: -0.05em;
         }
       }
     }
@@ -99,12 +104,14 @@ const StyledWrapper = styled.div`
       color: #999999;
       font-size: 12px;
       font-weight: 500;
+      width: max-content;
     }
 
     .top-nickname {
       color: #000;
       font-size: 18px;
       font-weight: 700;
+      letter-spacing: -0.05em;
     }
 
     .apts {
@@ -112,6 +119,12 @@ const StyledWrapper = styled.div`
       font-size: 14px;
       font-weight: 700;
       letter-spacing: -0.05em;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .nickname-and-apts {
+      flex-wrap: wrap;
     }
   }
 `;
