@@ -11,6 +11,10 @@
 
 
 ### 로컬에서 실행하기
+
+- client 코드 실행 전 server 코드를 받아주세요!
+[json-server로 만든 API 코드 받기](https://github.com/JAENY007/JEJODO_Coding_TEST_server)
+
 1. `npm i`로 패키지를 설치합니다
 2. client 코드 실행 전 `json-server` 구동을 확인합니다
 3. `json-server`가 정상적으로 구동중이라면
